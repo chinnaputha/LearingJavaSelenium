@@ -1,6 +1,7 @@
 package com.training.nextcharacter;
 /**
- * 
+ * class for nextcharacter
+ * @author shiva
  */
 
 import java.util.Scanner;
