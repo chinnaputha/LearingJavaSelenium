@@ -1,4 +1,4 @@
-package com.training.corelogics;
+package com.training.nextcharacter;
 /**
  * 
  */
