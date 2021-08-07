@@ -1,7 +1,7 @@
 package com.training.corelogics;
 
 /**
- * 
+ * Class to find Factorial of a given number
  * @author ACER
  *
  */
