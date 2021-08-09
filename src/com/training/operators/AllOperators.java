@@ -20,6 +20,7 @@ public class AllOperators {
 		System.out.println("a*b---->" + (a * b));// 32
 		System.out.println("a/b---->" + (a / b));// 2
 		System.out.println("a%b---->" + (a / b));// 0
+		
 	}
 
 	/**
@@ -79,6 +80,21 @@ public class AllOperators {
 		System.out.println("b value-->"+b);//20
 	}
 
+	/**
+	 * Method to perform unary operators
+	 */
+	public void unaryOperators() {
+		System.out.println("******Unary Operators************");
+		int age=18;
+		System.out.println("pre increment -->"+ (++age));
+		System.out.println("post increment -->"+ (age++));
+		System.out.println(age);//20
+		
+		System.out.println("pre decremetn-->"+(--age));//19
+		System.out.println("post decrement-->"+(age--));//19
+		System.out.println("Current age-->"+age);//18
+	}
+	
 	public static void main(String[] args) {
 		AllOperators ao=new AllOperators();
 		ao.arithmeticOperations();
@@ -86,6 +102,7 @@ public class AllOperators {
 		ao.relationalOperators(10, 20);
 		ao.logicalOperators();
 		ao.ternaryOperators();
+		ao.unaryOperators();
 	}
 
 }
