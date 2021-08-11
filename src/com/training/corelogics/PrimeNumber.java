@@ -1,4 +1,10 @@
 package com.training.corelogics;
+
+/**
+ * class to perform given number is prime or not
+ * @author Siva
+ *
+ */
 public class PrimeNumber
 {
 	
