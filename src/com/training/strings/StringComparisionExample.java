@@ -2,7 +2,7 @@ package com.training.strings;
 
 public class StringComparisionExample {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		//Strings are immutable that means whose content can’t be changed.
 		//Once string object is created its content can’t be changed but new object is created.
 
