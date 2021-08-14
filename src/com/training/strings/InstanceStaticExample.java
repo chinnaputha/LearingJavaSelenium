@@ -12,7 +12,7 @@ public class InstanceStaticExample {
 	}
 	
 	public static void method2() {
-		System.out.println("comapnayName"+companyName);
+		System.out.println("comapnayName"+companyName); 
 	}
 
 	public static void main(String[] args) {

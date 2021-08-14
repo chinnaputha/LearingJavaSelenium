@@ -7,7 +7,7 @@ public class StringBufferExample {
 		//Strings are Immutable
 		
 		
-		StringBuffer sb= new StringBuffer("Hello");
+		StringBuffer sb= new StringBuffer("Hello"); 
 		sb.append("Test");
 		
 		
