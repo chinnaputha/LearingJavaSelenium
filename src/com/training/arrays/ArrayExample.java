@@ -6,7 +6,7 @@ package com.training.arrays;
  *
  */
 public class ArrayExample { 
-	
+	 
 	public static void arrayEx() { 
 		int []arr= {85,10,20,30,40,50,60,70};
 		System.out.println("Array size--->"+arr.length);
