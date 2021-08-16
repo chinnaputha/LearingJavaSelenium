@@ -9,7 +9,7 @@ public class LargestNumber {
 			if(max<arr[i]) {
 				max=arr[i];  
 			} 
-		}
+		} 
 		System.out.println("Largest number-->"+max);
 	}
 
