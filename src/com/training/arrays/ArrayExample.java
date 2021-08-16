@@ -2,7 +2,7 @@ package com.training.arrays;
 
 /**
  * Class to perform Array example
- * @author Chinna.Putha
+ * @author Chinna.Putha 
  *
  */
 public class ArrayExample { 
