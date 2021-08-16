@@ -8,7 +8,7 @@ public class LargestNumber {
 		for(int i=1;i<arr.length;i++) {
 			if(max<arr[i]) {
 				max=arr[i];  
-			} 
+			}  
 		}  
 		System.out.println("Largest number-->"+max);
 	}
