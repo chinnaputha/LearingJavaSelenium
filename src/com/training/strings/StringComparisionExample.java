@@ -11,7 +11,7 @@ public class StringComparisionExample {
 		//s= s.concat("Selenium");// concat() method appends the string at the end
 		//System.out.println("s value-->"+s);// will print java because strings are immutable objects
 		
-		
+		 
 		s=s.replace("Java", "Selenium1");
 		System.out.println(s);
 	}
