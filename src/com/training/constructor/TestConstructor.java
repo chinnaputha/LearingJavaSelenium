@@ -15,7 +15,7 @@ public class TestConstructor {
 	public void sampleTest() {
 		System.out.println("i am in method1");
 	}
-	
+	 
 	
 	public static void main(String[] args) {
 		TestConstructor tt = new TestConstructor();
