@@ -5,7 +5,7 @@ package com.training.arrays;
  * @author Chinna.Putha 
  *
  */
-public class ArrayExample {  
+public class ArrayExample {    
 	 
 	public static void arrayEx() { 
 		int []arr= {85,10,20,30,40,50,60,70};
