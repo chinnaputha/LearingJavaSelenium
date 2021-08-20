@@ -11,7 +11,7 @@ public class BankExample2 {
 		System.out.println("password-->"+b.getPassword());//
 		
 		Employee ee = new Employee();
-		ee.setEmpName("Andrews");
+		ee.setEmpName("Andrews");//set method -- assign/set the value
 		ee.setEmpId(456);
 		ee.setEmpSalary(151.23f);
 		ee.setEmpAddress("chennai");

@@ -7,7 +7,18 @@ public abstract class AbsExample {
 		System.out.println("im in display details");
 	}
 
+	
+	public void sayHello() {
+		System.out.println("im saying Hello");
+	}
+	
 	//abstract method
 	public abstract void showDetails(); // empty room
+	
+	public static void main(String[] args) {
+		
+			
+			
+	}
 
 }
