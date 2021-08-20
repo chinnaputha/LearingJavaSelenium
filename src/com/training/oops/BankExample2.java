@@ -9,6 +9,15 @@ public class BankExample2 {
 		
 		System.out.println("username-->"+b.getUsername());//
 		System.out.println("password-->"+b.getPassword());//
+		
+		Employee ee = new Employee();
+		ee.setEmpName("Andrews");
+		ee.setEmpId(456);
+		ee.setEmpSalary(151.23f);
+		ee.setEmpAddress("chennai");
+		
+		System.out.println("emp name-->" + ee.getEmpName() + " emp id-->" + ee.getEmpId() + " emp salary-->"
+				+ ee.getEmpSalary() + " emp addrass-->" + ee.getEmpAddress());
 
 	}
 
