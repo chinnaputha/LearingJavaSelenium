@@ -32,8 +32,7 @@ public class SwapNumbers {
   * Class to perform Swap two numbers without using temporary variable
   */
 
-	public void swapnumberswithoutusingtemporaryvariables ()
-	{
+	public void swapnumberswithoutusingtemporaryvariables ()	{
     	float first = 10,  second = 20;
  		
  		System.out.println("--Before swap1--");
@@ -49,7 +48,6 @@ public class SwapNumbers {
  		System.out.println("second number = " + second);
  		
  	}
-    	 
 
 	public  static void main(String[] args) {
 
