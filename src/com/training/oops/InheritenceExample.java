@@ -8,7 +8,7 @@ public class InheritenceExample implements Printable{
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		InheritenceExample ie = new InheritenceExample();
 		ie.print();
 	}
