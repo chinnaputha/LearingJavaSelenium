@@ -48,7 +48,7 @@ public class SwapNumbers {
  		System.out.println("second number = " + second);
  		
  	}
-
+	
 	public  static void main(String[] args) {
 
 		SwapNumbers obj =new SwapNumbers ();
