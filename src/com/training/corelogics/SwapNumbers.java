@@ -6,9 +6,7 @@ package com.training.corelogics;
  */
 public class SwapNumbers {
 	
- public void swapnumbersusingtemporaryvariable ()
- 
- {
+ public void swapnumbersusingtemporaryvariable () {
         float first = 10,  second = 20;
 		
 		System.out.println("--Before swap--");
