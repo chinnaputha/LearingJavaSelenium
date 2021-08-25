@@ -4,6 +4,7 @@ package com.training.corelogics;
  * @author Sukumar
  *
  */
+
 public class SwapNumbers {
 	
  public void swapnumbersusingtemporaryvariable () {
