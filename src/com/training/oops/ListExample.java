@@ -24,6 +24,11 @@ public class ListExample {
 		System.out.println("arraylist size-->"+al.size());
 		System.out.println("array list elements-->"+al);
 		
+		
+		System.out.println("get list 2nd value-->"+al.get(2));//
+		
+		
+		
 		List<String> al2 = new ArrayList<String>();
 		
 

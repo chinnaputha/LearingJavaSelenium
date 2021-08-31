@@ -22,9 +22,7 @@ public class IfElseIf {
 	public static void main(String[] args) {
 		IfElseIf iei = new IfElseIf();
 		iei.marksStatus(69);
-		iei.marksStatus(55);
-		iei.marksStatus(38);
-		iei.marksStatus(10);
+		
 	}
 
 }
