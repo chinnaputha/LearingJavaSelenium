@@ -71,7 +71,7 @@ public class FirstAutomationCssTest {
 		List<WebElement> totalLinks=  driver.findElements(By.tagName("a"));
 		System.out.println("total links in a webpage--->"+totalLinks.size());
 		
-		totalLinks.get(79).click();
+		totalLinks.get(79).click(); 
 		
 		
 		Thread.sleep(4000);
