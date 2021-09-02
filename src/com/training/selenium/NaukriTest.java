@@ -1,6 +1,7 @@
 package com.training.selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 public class NaukriTest extends TestBase {
 
@@ -21,6 +22,13 @@ public class NaukriTest extends TestBase {
 		
 		//driver.findElement(By.xpath("//a[text()='Register for free']")).click();
 		Thread.sleep(4000);
+		
+		
+		driver.findElement(By.xpath("//button[contains(@title,'Fresher')]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//input[@id='fname']")).sendKeys("Testing Profile");
+		Thread.sleep(4000);
+		
 		
 		driver.quit();
 	}
