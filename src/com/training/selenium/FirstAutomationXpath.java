@@ -74,6 +74,10 @@ public class FirstAutomationXpath {
 		totalLinks.get(79).click(); 
 		
 		
+		List<WebElement> totalFrames=  driver.findElements(By.tagName("iframe"));
+		System.out.println("total iframes in a webpage--->"+totalFrames.size());
+		
+		
 		Thread.sleep(4000);
 		
 		driver.quit();
