@@ -6,11 +6,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-
+/**
+ * Class to Register Naukri Portal
+ * @author Shiva Rajasekhar
+ *
+ */
 public class TestNaukri {
+	
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\softwares\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("https://www.naukri.com/");
@@ -42,10 +46,10 @@ public class TestNaukri {
 		driver.findElement(By.cssSelector("button[name='basicDetailSubmit']")).click();
 		Thread.sleep(6000);
 		driver.findElement(By.cssSelector("input[name='qualification_0']")).click();
-
+		
 		List<WebElement> list5 = driver.findElements(By.xpath("//ul[@callback-ref='listingCallback'][1]/li"));
-//int size=list5.size();
-//System.out.println(size);
+		//int size=list5.size();
+		//System.out.println(size);
 		for (WebElement otts : list5) {
 			System.out.println(otts.getText());
 			if (otts.getText().equals("Masters/Post-Graduation")) {
@@ -54,6 +58,7 @@ public class TestNaukri {
 			}
 		}
 		driver.findElement(By.cssSelector("input[tnmdependent='courseId_0']")).click();
+		//need to reslove the issue
 		List<WebElement> list6 = driver.findElements(By.xpath("(//ul[@callback-ref='listingCallback'])[2]/li"));
 		int size3 = list6.size();
 		System.out.println("degree values" + size3);
