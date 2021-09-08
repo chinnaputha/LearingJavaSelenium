@@ -2,6 +2,8 @@ package com.training.selenium;
 
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,7 +27,8 @@ public class TestNaukri {
 		driver.findElement(By.name("userType")).click();
 		driver.findElement(By.id("fname")).sendKeys("shivaraja");
 		Thread.sleep(2000);
-		driver.findElement(By.name("email")).sendKeys("rgf99@gmail.com");
+		String email= RandomStringUtils.randomAlphabetic(12);
+		driver.findElement(By.name("email")).sendKeys(email+"@gmail.com");
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("sfrdh10799");
 		Thread.sleep(2000);
@@ -58,10 +61,11 @@ public class TestNaukri {
 			}
 		}
 		driver.findElement(By.cssSelector("input[tnmdependent='courseId_0']")).click();
+		Thread.sleep(2000);
 		//need to reslove the issue
-		List<WebElement> list6 = driver.findElements(By.xpath("(//ul[@callback-ref='listingCallback'])[2]/li"));
+		List<WebElement> list6 = driver.findElements(By.xpath("(//ul[@callback-ref='listingCallback'])[2]/li/descendant::span"));
 		int size3 = list6.size();
-		System.out.println("degree values" + size3);
+		System.out.println("degree values " + size3);
 		for (WebElement oppts5 : list6) {
 			System.out.println(oppts5.getText());
 			if (oppts5.getText().equals("CA")) {
