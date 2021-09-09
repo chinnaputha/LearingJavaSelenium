@@ -1,5 +1,6 @@
 package com.training.selenium;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -12,7 +13,7 @@ import org.openqa.selenium.WebElement;
  */
 public class SelectExampleWithoutSelectTag extends TestBase {
 
-	public void registration() throws InterruptedException {
+	public void registration() throws InterruptedException, IOException {
 		openApplication("http://demo.automationtesting.in/Register.html");
 		Thread.sleep(4000);
 		
@@ -27,12 +28,12 @@ public class SelectExampleWithoutSelectTag extends TestBase {
 				break;
 			}
 		}
-		
+		captureScreenshot();
 		Thread.sleep(4000);
 		driver.close();
 	}
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
 		SelectExampleWithoutSelectTag rd = new SelectExampleWithoutSelectTag();
 		rd.registration();
 
