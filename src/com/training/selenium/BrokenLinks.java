@@ -1,7 +1,4 @@
 package com.training.selenium;
-/**
- * @author shiva raja sekhara reddy
- */
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -14,6 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+/**
+ * Class to check Brokenlinks verification
+ * @author Rajasekhar
+ *
+ */
 public class BrokenLinks {
 	public static void main(String[] args) throws IOException {
 		System.setProperty("webdriver.chrome.driver","drivers\\chromedriver.exe");
@@ -27,10 +29,12 @@ public class BrokenLinks {
 		for (int i = 0; i < size; i++) {
 			WebElement element = links.get(i);
 			String url = element.getAttribute("href");
+			System.out.println("URL-->"+url);
 			URL link=new URL(url);
 			HttpURLConnection httpcon=(HttpURLConnection)link.openConnection();
 			httpcon.connect();
 			int rescode=httpcon.getResponseCode();
+			System.out.println("status code-->"+rescode);
 			if(rescode>400) {
 				System.out.println(url+"is broken links");
 			}

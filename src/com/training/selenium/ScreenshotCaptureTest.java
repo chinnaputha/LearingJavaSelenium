@@ -1,12 +1,6 @@
 package com.training.selenium;
 
-import java.io.File;
 import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
 public class ScreenshotCaptureTest extends TestBase {
 
