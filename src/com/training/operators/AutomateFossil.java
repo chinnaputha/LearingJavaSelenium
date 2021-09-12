@@ -1,4 +1,4 @@
-package com.training.selenium;
+package com.training.operators;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
