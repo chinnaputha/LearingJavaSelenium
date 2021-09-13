@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="training">
+	<test name="testngprac">
+		<classes>
+			<class name="com.training.testng.TestExample4" />
+			<class name="com.training.testng.TestNGExample" />
+			<class name="com.training.testng.TestNGExample3" />
+			<class name="com.training.testng.TestNGExample2" />
+		</classes>
+	</test>
+
+	<test name="testngprac">
+		<classes>
+			<class name="com.training.testng.TestExample4" />
+
+			<class name="com.training.testng.TestNGExample2" />
+		</classes>
+	</test>
+
+	<!-- testngprac -->
+</suite> <!-- training -->
