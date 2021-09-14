@@ -8,13 +8,16 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
-	 WebDriver driver;
+	 public WebDriver driver;
 
 	public void openApplication(String appURL) {
 		System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
@@ -47,6 +50,16 @@ public class TestBase {
 
 		FileUtils.copyFile(srcFile, destFile);
 
+	}
+	
+	public void waitForElementClick(String element) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
+	}
+	
+	public void waitForElementClick(String element, int time) {
+		WebDriverWait wait = new WebDriverWait(driver, time);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
 	}
 
 }

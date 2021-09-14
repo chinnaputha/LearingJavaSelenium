@@ -17,6 +17,7 @@
 	<test name="training3">
 		<classes>
 			<class name="com.training.testng.TestNGExample3" />
+			<class name="com.training.testng.TestExample4" />
 		</classes>
 	</test>
 	

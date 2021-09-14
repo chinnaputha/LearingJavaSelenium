@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="NaukriProfile"  thread-count = "5" parallel = "tests">
+
+	<test name="profileUpdate">
+		<parameter name="username" value="javacampus.selenium@gmail.com" />
+		<parameter name="password" value="Testing@123" />
+		<classes>
+			<class name="com.training.testng.NaukriProfileUpdate" />
+		</classes>
+	</test>
+
+	<test name="profileUpdate2">
+		<parameter name="username" value="chinnareddy.putha@gmail.com" />
+		<parameter name="password" value="hello@345" />
+		<classes>
+			<class name="com.training.testng.NaukriProfileUpdate" />
+		</classes>
+	</test>
+	
+	<test name="profileUpdate3">
+		<parameter name="username" value="javacampus.selenium@gmail.com" />
+		<parameter name="password" value="Testing@123" />
+		<classes>
+			<class name="com.training.testng.NaukriProfileUpdate" />
+		</classes>
+	</test>
+
+	<test name="profileUpdate4">
+		<parameter name="username" value="chinnareddy.putha@gmail.com" />
+		<parameter name="password" value="hello@345" />
+		<classes>
+			<class name="com.training.testng.NaukriProfileUpdate" />
+		</classes>
+	</test>
+
+
+
+
+</suite> <!-- NaukriProfile -->
