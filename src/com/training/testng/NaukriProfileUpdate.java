@@ -63,7 +63,7 @@ public class NaukriProfileUpdate extends TestBase {
 		System.out.println("profile info-->"+profilePageElements.get(0).getText());
 		System.out.println("profile info2-->"+profilePageElements.get(1).getText());
 		//Thread.sleep(4000);//need to replace with explicit wait
-		
+		//driver.navigate().refresh();
 		
 		Assert.assertEquals(profilePageElements.get(1).getText(), "today","Profile not updated today");
 		
