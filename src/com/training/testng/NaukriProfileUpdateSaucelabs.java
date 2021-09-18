@@ -13,14 +13,15 @@ import org.testng.asserts.SoftAssert;
 
 import com.training.selenium.TestBase;
 
-public class NaukriProfileUpdate extends TestBase {
+public class NaukriProfileUpdateSaucelabs extends TestBase {
 
 	@Test(alwaysRun = true)
-	@Parameters({ "username", "password", "browser" })
-	public void loginNaukri(String username, String password, String browser) {
+	@Parameters({ "username", "password", "appURL" })
+	public void loginNaukri(String username, String password, String appURL) throws Exception {
 		System.out.println("username from xml--->" + username);
 		System.out.println("password from xml--->" + password);
-		openApplication("https://www.naukri.com/", browser);
+		runOnSauceLabsFromLocal("Windows", "chrome");
+		openApp(appURL);
 		driver.findElement(By.xpath("//div[text()='Login']")).click();
 
 		waitForElementClick("//input[@placeholder='Enter your active Email ID / Username']");
