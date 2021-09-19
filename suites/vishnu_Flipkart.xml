@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Flipkart">
+
+	<test name="mobile">
+		<parameter name="email" value="9100405914" />
+		<parameter name="password" value="123@Test" />
+		<parameter name="URL" value="https://flipkart.com/" />
+		<classes>
+			<class name="com.training.testng.vishnu_Flipkart" />
+
+		</classes>
+	</test>
+
+	<!-- <test name="InvaildLogin_flipkart">
+		<parameter name="email_iv" value="9100405919" />
+		<parameter name="password" value="123@Test" />
+		<classes>
+			<class name="com.training.testng.vishnu_Flipkart_invalidCredentials" />
+
+		</classes>
+	</test>  -->
+
+
+
+</suite>
+	
