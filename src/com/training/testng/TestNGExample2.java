@@ -2,6 +2,7 @@ package com.training.testng;
 
 import org.testng.annotations.Test;
 
+@Test(groups = "Smoke")
 public class TestNGExample2 {
 
 	@Test(priority = 0)

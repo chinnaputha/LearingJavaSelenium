@@ -2,6 +2,7 @@ package com.training.testng;
 
 import org.testng.annotations.Test;
 
+@Test(groups = {"Smoke","Regression"})
 public class TestNGExample {
 
 	@Test(alwaysRun = true)
