@@ -3,6 +3,7 @@ package com.training.testng;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,9 +27,11 @@ public class NaukriProfileReadWriteExcelTest extends TestBase {
 	XSSFWorkbook wb;
 	File file;
 	FileInputStream fis;
+	XSSFRow row;
+	FileOutputStream fos;
 
 	@Test
-	public void updateProfile() throws InterruptedException {
+	public void updateProfile() throws Throwable {
 
 		try {
 			// File location
@@ -38,7 +41,7 @@ public class NaukriProfileReadWriteExcelTest extends TestBase {
 			// convert file into xssfwork format
 			wb = new XSSFWorkbook(fis);
 			XSSFSheet sheet = wb.getSheet("Naukri");
-			XSSFRow row = sheet.getRow(1);
+			row = sheet.getRow(1);
 			int totRows = sheet.getPhysicalNumberOfRows();
 			System.out.println("total rows avaialbe in sheet-->" + totRows);
 			XSSFCell cell1 = row.getCell(0);
@@ -56,7 +59,9 @@ public class NaukriProfileReadWriteExcelTest extends TestBase {
 			e.printStackTrace();
 		} finally {
 			try {
-				wb.close();
+				// workbook close
+				// wb.close();
+				// close the file read mode
 				fis.close();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -66,77 +71,97 @@ public class NaukriProfileReadWriteExcelTest extends TestBase {
 		System.out.println("usename--->" + userName);
 		System.out.println("password--->" + passWord);
 
-		openApplication("https://www.naukri.com/", "Chrome");
-		waitForElementClick("//div[text()='Login']");
-		driver.findElement(By.xpath("//div[text()='Login']")).click();
+		try {
+			openApplication("https://www.naukri.com/", "Chrome");
+			waitForElementClick("//div[text()='Login']");
+			driver.findElement(By.xpath("//div[text()='Login']")).click();
 
-		waitForElementClick("//input[@placeholder='Enter your active Email ID / Username']");
-		waitForElementClick("//button[@type='submit']");
+			waitForElementClick("//input[@placeholder='Enter your active Email ID / Username']");
+			waitForElementClick("//button[@type='submit']");
 
-		driver.findElement(By.xpath("//input[@placeholder='Enter your active Email ID / Username']")).sendKeys(userName);
-		driver.findElement(By.xpath("//input[@placeholder='Enter your password']")).sendKeys(passWord);
+			driver.findElement(By.xpath("//input[@placeholder='Enter your active Email ID / Username']"))
+					.sendKeys(userName);
+			driver.findElement(By.xpath("//input[@placeholder='Enter your password']")).sendKeys(passWord);
 
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		waitForElementClick("//div[text()='UPDATE PROFILE']", 15);
-		String pageTitle = driver.getTitle();
+			driver.findElement(By.xpath("//button[@type='submit']")).click();
+			waitForElementClick("//div[text()='UPDATE PROFILE']", 15);
+			String pageTitle = driver.getTitle();
 
-		Assert.assertEquals(pageTitle, "Home | Mynaukri", "Page Title is mismatching");
+			Assert.assertEquals(pageTitle, "Home | Mynaukri", "Page Title is mismatching");
+			JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		driver.findElement(By.xpath("//div[text()='UPDATE PROFILE']")).click();
-		waitForElementClick("//em[@class='icon edit']", 15);
+			js.executeScript("arguments[0].click();", driver.findElement(By.xpath("//div[text()='UPDATE PROFILE']")));
+			// driver.findElement(By.xpath("//div[text()='UPDATE PROFILE']")).click();
+			waitForElementClick("//em[@class='icon edit']", 15);
 
-		driver.findElement(By.xpath("//em[@class='icon edit']")).click();
-		waitForElementClick("//button[@id='saveBasicDetailsBtn']");
+			driver.findElement(By.xpath("//em[@class='icon edit']")).click();
+			waitForElementClick("//button[@id='saveBasicDetailsBtn']");
 
-		WebElement saveBtn = driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']"));
+			WebElement saveBtn = driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']"));
 
-		Assert.assertTrue(saveBtn.isEnabled(), "Save Button not enabled to click");
-		Assert.assertFalse(!saveBtn.isEnabled(), "save button should be disabled");
+			Assert.assertTrue(saveBtn.isEnabled(), "Save Button not enabled to click");
+			Assert.assertFalse(!saveBtn.isEnabled(), "save button should be disabled");
 
-		// scroll to webelement using javascript executor
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", saveBtn);
+			// scroll to webelement using javascript executor
+			js.executeScript("arguments[0].scrollIntoView();", saveBtn);
 
-		Thread.sleep(4000);
+			Thread.sleep(4000);
 
-		Actions act = new Actions(driver);
-		act.click(saveBtn).build().perform();
+			Actions act = new Actions(driver);
+			act.click(saveBtn).build().perform();
 
-		// click using javascript executor
-		js.executeScript("arguments[0].click();", saveBtn);
+			// click using javascript executor
+			js.executeScript("arguments[0].click();", saveBtn);
 
-		//driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
+			// driver.findElement(By.xpath("//button[@id='saveBasicDetailsBtn']")).click();
 
-		waitForElementPresent("//div[@class='profilePage']");
+			waitForElementPresent("//div[@class='profilePage']");
 
-		List<WebElement> profilePageElements = driver
-				.findElements(By.xpath("(//div[@class='profilePage'])/div/div[2]/descendant::span"));
-		System.out.println("total elemetns-->" + profilePageElements.size());
+			List<WebElement> profilePageElements = driver
+					.findElements(By.xpath("(//div[@class='profilePage'])/div/div[2]/descendant::span"));
+			System.out.println("total elemetns-->" + profilePageElements.size());
 
-		System.out.println("profile info-->" + profilePageElements.get(0).getText());
-		System.out.println("profile info2-->" + profilePageElements.get(1).getText()); // Thread.sleep(4000);//need to
-		// replace with explicit wait // driver.navigate().refresh();
-		js.executeScript("history.go[0];");// refresh using javascript
+			System.out.println("profile info-->" + profilePageElements.get(0).getText());
+			System.out.println("profile info2-->" + profilePageElements.get(1).getText()); // Thread.sleep(4000);//need to
+			// replace with explicit wait // driver.navigate().refresh();
+			// js.executeScript("history.go[0];");// refresh using javascript
 
-		Assert.assertEquals(profilePageElements.get(1).getText(), "today", "Profile not updated today");
+			Assert.assertEquals(profilePageElements.get(1).getText(), "today2", "Profile not updated today");
 
-		String pageTitle2 = js.executeScript("return document.title;").toString();
-		System.out.println("page title using javascript" + pageTitle2);
+			String pageTitle2 = js.executeScript("return document.title;").toString();
+			System.out.println("page title using javascript" + pageTitle2);
 
-		boolean isPageTitle = pageTitle2.contains("Mynaukri"); //
-		Assert.assertTrue(isPageTitle, "Page title not matching");
+			boolean isPageTitle = pageTitle2.contains("Mynaukri"); //
+			Assert.assertTrue(isPageTitle, "Page title not matching");
 
-		Assert.assertTrue(pageTitle2.contains("Mynaukri"), "Page title not matching");
-		System.out.println("not proceed with next step");
+			Assert.assertTrue(pageTitle2.contains("Mynaukri"), "Page title not matching");
+			System.out.println("not proceed with next step");
+			row.createCell(2).setCellValue("PASS");
+		}catch (Throwable e) {
+			System.out.println("moved to catch block...");
+			row.createCell(2).setCellValue("FAIL");
+			e.printStackTrace();
+		} finally {
+			// write data to the excel file
+			fos = new FileOutputStream(file);
+			// write date to the excel file
+			wb.write(fos);
 
-		// Assert will stop the execution (HardAssertion)
-		// verify will skip the particular step and proceed further steps(SoftAssertion)
+			// close the workbook
+			wb.close();
+			// close write mode of excel file
+			fos.close();
+			//AssertionError --- Error --- Throwable
+	}
+
+	// Assert will stop the execution (HardAssertion)
+	// verify will skip the particular step and proceed further steps(SoftAssertion)
 
 	}
 
 	@AfterTest
 	public void closeBrowser() {
-		 driver.quit();
+		driver.quit();
 	}
 
 }
