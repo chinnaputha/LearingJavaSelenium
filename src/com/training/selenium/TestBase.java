@@ -22,7 +22,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
-	public WebDriver driver;
+	public static WebDriver driver;
 
 	public void openApplication(String appURL, String browserName) {
 
@@ -38,7 +38,13 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 		}
 
-		driver.get(appURL);// hit application URL
+		driver.get(appURL);// hit application URL and wait for page to load
+		//driver.navigate().to(appURL); //hit the appURL in the address bar of the browser
+		
+		//driver.navigate().back();
+		//driver.navigate().forward();
+	
+		
 		driver.manage().window().maximize();// maximize the window
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
@@ -177,10 +183,18 @@ public class TestBase {
 	
 
 	public void waitForElementClick(String element) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
+		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
 	}
+	
+	public void waitForElementVisible(String element) {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element)));
+	}
+	
+	
 
+	
 	public void waitForElementPresent(String element) {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(element)));
